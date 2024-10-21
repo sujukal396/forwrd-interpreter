@@ -21,11 +21,13 @@ Builtin wrds:
     rsh -> bitwise right shift
     swp -> swaps top 2 elements
     def -> define new global variable or function
+    sel -> execute one of two functions depending on boolean val 2nd from top
     fch -> fetch element at nth index from list
     prt -> prints top of stack
     sld -> remove n elements after top
     eva -> execute top of stack
     lst -> pull n values from stack into list
+    len -> push length of input list
     pop -> pops top element off stack
     dup -> duplicates element n away from top of stack
     clr -> clear stack
