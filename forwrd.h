@@ -27,12 +27,12 @@ typedef enum { // c1 << 16 | c2 << 8 | c3
     PRT = 7369332,
     SLD = 7564388,
     EVA = 6649441,
-    LST = 7107444,
+    _LST = 7107444,
     LEN = 7103854,
     POP = 7368560,
     DUP = 6583664,
     CLR = 6515826
-} wrd_enum;
+} WrdEnum;
 
 typedef enum {
     INT,
@@ -46,13 +46,13 @@ typedef enum {
 
 typedef struct {
     TokenType type;
-    union val {
+    union {
         long int num;
         char chr;
         double flt;
-        Wrd *wrd;
+        WrdEnum *wrd;// 
         void *vptr; // strings, lists, and phrases
-    }
+    } val;
 } Token;
 
 // Token Methods:
