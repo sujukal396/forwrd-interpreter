@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "forwrd.h"
 
 // Token Methods:
@@ -20,9 +21,8 @@ int main() {
 
     char line[100];
     while((fgets(line, sizeof(line), fptr)) != NULL) {
-        puts(line);
+        for(char* word = strtok(line, " \n\t"); word && *word; word = strtok(NULL, " \n\t")) {
+            puts(word);
+        }
     }
-
-    // Iterate line by line
-    // pull tokens out of each line
 }
