@@ -1,0 +1,15 @@
+{
+  0  dup lte
+  { 1 2 sld }
+  {
+    1 dup
+    1 dup
+    -1 add
+    1 dup
+    eva
+    mul
+    1 sld
+  } 2 lst sel
+}
+n // any positive whole num
+1 dup eva

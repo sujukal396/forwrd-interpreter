@@ -12,7 +12,7 @@ Token* pop(Stack *stack) {}
 Token* peek(Stack *stack, int index) {}
 
 int main() {
-    char filepath[] = "wrd_files/factorial.wrd";
+    char filepath[] = "wrd_files/factorial.fwrd";
     FILE *fptr = fopen(filepath, "r");
     if(fptr == NULL) {
         perror("Error: Invalid File");
