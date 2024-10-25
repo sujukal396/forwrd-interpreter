@@ -51,6 +51,7 @@ typedef struct {
         char chr;
         double flt;
         WrdEnum *wrd;// 
+        PhrBuilder phr;
         void *vptr; // strings, lists, and phrases
     } val;
 } Token;
