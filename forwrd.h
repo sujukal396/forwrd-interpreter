@@ -60,7 +60,10 @@ typedef struct {
 void free_token(Token *token);
 void exec_wrd(Token *token);
 
-typedef struct {
+//TODO: Create Dequeue
+// Dequeue can be used as either stack or queue of which both are required
+
+typedef struct { //TODO: Replace with Dequeue
     Token *bottom;	// pointer to start of array
     Token *top;	// pointer to last element of array
     int cap;	// vector capacity
