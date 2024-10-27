@@ -60,18 +60,29 @@ typedef struct {
 void free_token(Token *token);
 void exec_wrd(Token *token);
 
-//TODO: Create Dequeue
-// Dequeue can be used as either stack or queue of which both are required
+typedef struct {
+    int cap;
+    int length;
+    Token* arr;
+} Vector;
 
-typedef struct { //TODO: Replace with Dequeue
-    Token *bottom;	// pointer to start of array
-    Token *top;	// pointer to last element of array
-    int cap;	// vector capacity
-} Stack;
+Vector* init_vec();
+void push(int index);
+Token* get(int index);
+void remove(int index);
 
-// Stack Methods:
-void push(Stack *stack, Token *token);
-Token* pop(Stack *stack);
-Token* peek(Stack *stack, int index);
+typedef struct {
+    Vector* vec;
+    int front;
+    int end;
+} Deque;
+
+// Deque Functions:
+Deque* init_deque();
+void offer(Token *token);
+void push(Token *token);
+Token* poll();
+Token* pop();
+Token* peek(int index); // Pos -> Queue; Neg -> Stack
 
 #endif // !FORWRD_H
