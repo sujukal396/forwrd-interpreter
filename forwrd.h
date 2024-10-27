@@ -45,13 +45,19 @@ typedef enum {
 } TokenType;
 
 typedef struct {
+    int cap;
+    size_t elem_size;
+    void* arr;
+} Vector;
+
+typedef struct {
     TokenType type;
     union {
         long int num;
         char chr;
         double flt;
         WrdEnum *wrd;// 
-        PhrBuilder phr;
+        Vector* phr_builder;// list of tokens (phrase)
         void *vptr; // strings, lists, and phrases
     } val;
 } Token;
@@ -60,16 +66,9 @@ typedef struct {
 void free_token(Token *token);
 void exec_wrd(Token *token);
 
-typedef struct {
-    int cap;
-    int length;
-    Token* arr;
-} Vector;
 
-Vector* init_vec();
-void push(int index);
-Token* get(int index);
-void remove(int index);
+Vector* init_vec(int cap, size_t elem_size);
+void resize(Vector *vec, int new_size);
 
 typedef struct {
     Vector* vec;
@@ -81,8 +80,8 @@ typedef struct {
 Deque* init_deque();
 void offer(Token *token);
 void push(Token *token);
-Token* poll();
-Token* pop();
-Token* peek(int index); // Pos -> Queue; Neg -> Stack
+void* poll();
+void* pop();
+void* peek(int index); // Pos -> Queue; Neg -> Stack
 
 #endif // !FORWRD_H
