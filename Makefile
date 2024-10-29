@@ -5,11 +5,11 @@ SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
 
 
-test: $(OBJS)
+forwrd: $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f *.o test
+	rm -f *.o forwrd
