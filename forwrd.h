@@ -17,7 +17,7 @@ typedef enum { // c1 << 16 | c2 << 8 | c3
     IOR = 6909810,
     NOT = 7237492,
     BND = 6450788,
-    BOR = 6450788,
+    BOR = 6451058,
     BNT = 6450804,
     BXR = 6453362,
     LSH = 7107432,
@@ -25,6 +25,7 @@ typedef enum { // c1 << 16 | c2 << 8 | c3
     SWP = 7567216,
     DEF = 6579558,
     SEL = 7562604,
+    GET = 6776180,
     FCH = 6710120,
     PRT = 7369332,
     SLD = 7564388,
@@ -46,20 +47,25 @@ typedef enum {
     PHR,
 } TokenType;
 
+typedef void (*WrdOp)(Deque*);
+
+WrdOp init_wrd(WrdEnum wrd);
+
 typedef struct {
     TokenType type;
     union {
         long int num;
         char chr;
         double flt;
-        WrdEnum *wrd;// 
+        WrdOp wrd;// function pointer to wrd
         Deque* phr_builder;// list of tokens (phrase)
-        void *vptr; // strings, lists, and phrases
+        void *vptr; // strings & lists
     } val;
 } Token;
 
 // Token Functions:
 void free_token(Token *token);
 void exec_wrd(Token *token);
+Token* to_token(Deque *deque);// Convert PhraseBuilder deque to token
 
 #endif // !FORWRD_H

@@ -20,7 +20,7 @@ int resize(Vector *vec, int new_size);
 void free_vec(Vector *vec);
 
 // Deque Functions:
-Deque* init_deque();
+Deque* init_deque(size_t elem_size);
 int offer(Deque *deque, void *elem);
 int push(Deque *deque, void *elem);
 void* poll(Deque *deque);

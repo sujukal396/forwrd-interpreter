@@ -21,6 +21,7 @@ Builtin wrds:
     * swp -> swaps top 2 elements
     * def -> define new global variable or function
     * sel -> execute one of two functions depending on boolean val 2nd from top
+    * get -> replaces string at top of stack with defined macro of same name
     * fch -> fetch element at nth index from list
     * prt -> prints top of stack
     * sld -> remove n elements after top
