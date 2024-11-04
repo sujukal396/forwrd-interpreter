@@ -4,6 +4,7 @@
 #include <string.h>
 #include "forwrd.h"
 #include "vector.h"
+#include "wrd.h"
 
 int hash_wrd(char *wrd) {// TODO: Complete hash_wrd function
     return wrd[0] << 16 | wrd[1] << 8 | wrd[2];
@@ -20,38 +21,69 @@ WrdOp init_wrd(WrdEnum wrd) {
     // I might need a disgusting switch-case now
     switch(wrd) {
         case ADD:
+            return add;
         case MUL:
+            return mul;
         case MOD:
+            return mod;
         case DIV:
+            return _div;
         case EQU:
+            return equ;
         case LSS:
+            return lss;
         case GTR:
+            return gtr;
         case LTE:
+            return lte;
         case GTE:
+            return gte;
         case AND:
+            return and;
         case IOR:
+            return ior;
         case NOT:
+            return not;
         case BND:
+            return bnd;
         case BOR:
+            return bor;
         case BNT:
+            return bnt;
         case BXR:
+            return bxr;
         case LSH:
+            return lsh;
         case RSH:
+            return rsh;
         case SWP:
+            return swp;
         case DEF:
+            return def;
         case SEL:
+            return sel;
         case GET:
+            return get;
         case FCH:
+            return fch;
         case PRT:
+            return prt;
         case SLD:
+            return sld;
         case EVA:
+            return eva;
         case _LST:
+            return lst;
         case LEN:
+            return len;
         case POP:
+            return _pop;
         case DUP:
+            return dup;
         case CLR:
+            return clr;
         default:
-            puts("grah");// placeholder for error
+            return NULL;
     }
 }
 
@@ -79,7 +111,7 @@ Token* tokenize(Deque *phr_stack, char *word) {// stack allocate phr_stack
         token = to_token(pop(phr_stack));
     } else {
         token->type = WRD;
-        token->val.wrd = init_wrd(WrdEnum(hash_wrd(token)));
+        token->val.wrd = init_wrd(hash_wrd(word));
     }
     return token;
 }

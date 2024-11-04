@@ -6,7 +6,7 @@
 void add(Deque *stack);
 void mul(Deque *stack);
 void mod(Deque *stack);
-void div(Deque *stack);
+void _div(Deque *stack);
 void equ(Deque *stack);
 void lss(Deque *stack);
 void gtr(Deque *stack);
@@ -31,7 +31,7 @@ void sld(Deque *stack);
 void eva(Deque *stack);
 void lst(Deque *stack);
 void len(Deque *stack);
-void pop(Deque *stack);
+void _pop(Deque *stack);
 void dup(Deque *stack);
 void clr(Deque *stack);
 
